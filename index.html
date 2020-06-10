@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Planner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style>
+#hour {
+    background-color: honeydew;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+#task {
+    background-color: pink;
+    border-bottom: 1px solid black;
+}
+#save {
+    background-color: lightgreen;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <div class="container">
+
+        <h1 style="text-align: center;">Work Day Scheduler</h1>
+        <p style="text-align: center;">A simple calendar app for scheduling your work day<p>
+        
+        <hr>
+
+        <div class="row" style="background-color: #ddd" id="calendarRow" style="background-color: #fe8000"></div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        var hoursArray = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+
+        for (i = 0; i < hoursArray.length; i++) {
+            $('#calendarRow').append(
+                $('<div class="col-md-2" id="hour">').text(hoursArray[i]),
+                $('<div class="col-md-8" id="task" contenteditable="true">').text("shit i need to do today"),
+                $('<div class="col-md-2" id="save">').text("Save"),
+            );
+        }
+
+
+    </script>
+
+</body>
+
+
+</html>
