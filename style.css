@@ -2,11 +2,14 @@
     background-color: honeydew;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.col-md-8 {
-    border-bottom: 1px solid black;
+#clear {
+    background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
 }
 
 button {
@@ -14,4 +17,12 @@ button {
     background-color: teal;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; 
+}
+
+p {
+    margin: 0;
 }
