@@ -59,23 +59,23 @@
         for (i = 0; i < hoursArray.length; i++) {
             $('#calendar').append(
                 $('<div class="col-md-2" id="hour">').text(hoursArray[i]),
-                $('<div class="col-md-8" id="task" contenteditable="true">').text(localStorage.getItem("myEvent")),
+                $('<textarea class="col-md-8" id="task">').text(localStorage.getItem("savedTask" + (i+1))),
                 $('<button class="col-md-2" id="save">').text("Save"),
             );
-            $('#task').attr("id","task" + (i+1));
+            $('#task').attr("id", "task" + (i + 1));
+            $('#save').attr("id", "task" + (i + 1));
         }
 
         $('button').click(function () {
-            console.log("save clicked");
-
-            //localStorage.setItem(editedTask, $('#task').val)
+            event.preventDefault();
+            var currentID = $(this).attr('id');
+            console.log(currentID);
+            var toStore = document.getElementById(currentID).value;
+            console.log(toStore);
+            currentID = currentID[4];
+            localStorage.setItem(("savedTask" + currentID), toStore);
+    
         });
-
-//when page is loaded, get local storage for itinerary divs
-
-        //save button:
-        //itinerary div will be "" by default
-        //on click, if current text of empty div != "", save current text to local storage
 
 
 
