@@ -1,28 +1,27 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p {
+    margin: 0;
+}
+
 #hour {
     background-color: honeydew;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    border-bottom: 1px solid grey;
     vertical-align: middle;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+button {
+    color: white;
+    background-color: teal;
+    border-radius: 0px 10px 10px 0px;
+}
+
 #clear {
     background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
 }
 
-button {
-    color: white;
-    background-color: teal;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; 
-}
-
-p {
-    margin: 0;
-}
