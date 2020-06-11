@@ -63,16 +63,31 @@
             $('#save').attr("id", "task" + (i + 1));
         }
 
+        timeColor();
+
         $('button').click(function () {
             event.preventDefault();
             var selectedID = $(this).attr('id');
             var storedText = document.getElementById(selectedID).value;
             selectedID = selectedID[4];
             localStorage.setItem(("savedTask" + selectedID), storedText);
-    
         });
 
-
+        function timeColor() {
+        for (var i = 0; i < hoursArray.length; i++) {
+            var calTime = moment().hour(9 + i);
+            if (moment().isAfter(calTime)) {
+                console.log("after");
+                $("#task" + (i + 1)).css("background-color","lightgreen");
+            } else if (moment().isBefore(calTime)) {
+                console.log("before");
+                $("#task" + (i + 1)).css("background-color","lightgrey");
+            } else {
+                console.log("now");
+                $("#task" + (i + 1)).css("background-color","salmon");;
+            }
+        };
+    };
 
     </script>
 
