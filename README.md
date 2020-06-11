@@ -1,5 +1,8 @@
 This is a simple day planner application that allows the user to write and save events for each hour of the day. It uses jQuery, moment.js, and Bootstrap. All HTML is responsive and valid.
 
+Project can be viewed here:
+https://jamescook98.github.io/dayplanner/
+
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar
