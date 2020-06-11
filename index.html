@@ -2,96 +2,41 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day Planner</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"
-        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    
+    <!-- jQuery link-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- Bootstrap link-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        #hour {
-            background-color: honeydew;
-            border-bottom: 1px solid black;
-            border-right: 1px solid black;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        .col-md-8 {
-            border-bottom: 1px solid black;
-        }
-
-        button {
-            color: white;
-            background-color: teal;
-            border-bottom: 1px solid black;
-            border-left: 1px solid black;
-        }
-    </style>
 </head>
 
 <body>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <div class="container">
+    <div class="container-fluid">
 
         <h1 style="text-align: center;">Work Day Scheduler</h1>
         <p style="text-align: center;">A simple calendar app for scheduling your work day<p>
+        <!-- displays current date/time -->
         <p style="text-align: center;" id="currentDateTime"></p>
 
+        <!-- div to be populated by dynamically generated rows/columns -->
         <div class="row" style="background-color: #ddd" id="calendar"></div>
+
+        <!-- clear button -->
+        <div class="clear" style="background-color: hotpink; height: 25px; width: 100px; margin: auto; text-align: center; color: white;">Clear</div>
 
     </div>
 
+    <!-- moment.js link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-    <script type="text/javascript">
-
-        var now = moment().format('MMMM Do YYYY, h:mm a');
-
-        $("#currentDateTime").text(now);
-
-        var hoursArray = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
-
-        for (i = 0; i < hoursArray.length; i++) {
-            $('#calendar').append(
-                $('<div class="col-md-2" id="hour">').text(hoursArray[i]),
-                $('<textarea class="col-md-8" id="task">').text(localStorage.getItem("savedTask" + (i+1))),
-                $('<button class="col-md-2" id="save">').text("Save"),
-            );
-            $('#task').attr("id", "task" + (i + 1));
-            $('#save').attr("id", "task" + (i + 1));
-        }
-
-        timeColor();
-
-        $('button').click(function () {
-            event.preventDefault();
-            var selectedID = $(this).attr('id');
-            var storedText = document.getElementById(selectedID).value;
-            selectedID = selectedID[4];
-            localStorage.setItem(("savedTask" + selectedID), storedText);
-        });
-
-        function timeColor() {
-        for (var i = 0; i < hoursArray.length; i++) {
-            var calTime = moment().hour(9 + i);
-            if (moment().isAfter(calTime)) {
-                console.log("after");
-                $("#task" + (i + 1)).css("background-color","lightgreen");
-            } else if (moment().isBefore(calTime)) {
-                console.log("before");
-                $("#task" + (i + 1)).css("background-color","lightgrey");
-            } else {
-                console.log("now");
-                $("#task" + (i + 1)).css("background-color","salmon");;
-            }
-        };
-    };
-
-    </script>
+    <script type="text/javascript" src="script.js"></script>
 
 </body>
-
 
 </html>

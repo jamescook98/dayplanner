@@ -1,0 +1,17 @@
+#hour {
+    background-color: honeydew;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+.col-md-8 {
+    border-bottom: 1px solid black;
+}
+
+button {
+    color: white;
+    background-color: teal;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
