@@ -16,12 +16,12 @@
         }
 
         .col-md-8 {
-            background-color: pink;
             border-bottom: 1px solid black;
         }
 
-        #save {
-            background-color: lightgreen;
+        button {
+            color: white;
+            background-color: teal;
             border-bottom: 1px solid black;
             border-left: 1px solid black;
         }
@@ -37,20 +37,17 @@
 
         <h1 style="text-align: center;">Work Day Scheduler</h1>
         <p style="text-align: center;">A simple calendar app for scheduling your work day<p>
-                <p id="currentDateTime"></p>
+        <p style="text-align: center;" id="currentDateTime"></p>
 
+        <div class="row" style="background-color: #ddd" id="calendar"></div>
 
-
-
-                <div class="row" style="background-color: #ddd" id="calendar" style="background-color: #fe8000">
-                </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script type="text/javascript">
 
-        var now = moment().format('MMMM Do YYYY, h:m a');
+        var now = moment().format('MMMM Do YYYY, h:mm a');
 
         $("#currentDateTime").text(now);
 
@@ -68,12 +65,10 @@
 
         $('button').click(function () {
             event.preventDefault();
-            var currentID = $(this).attr('id');
-            console.log(currentID);
-            var toStore = document.getElementById(currentID).value;
-            console.log(toStore);
-            currentID = currentID[4];
-            localStorage.setItem(("savedTask" + currentID), toStore);
+            var selectedID = $(this).attr('id');
+            var storedText = document.getElementById(selectedID).value;
+            selectedID = selectedID[4];
+            localStorage.setItem(("savedTask" + selectedID), storedText);
     
         });
 
